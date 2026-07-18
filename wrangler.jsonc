@@ -15,12 +15,12 @@
   },
   "routes": [
     {
-      "pattern": "bulidoge.site",
-      "custom_domain": true
+      "pattern": "bulidoge.site/*",
+      "zone_name": "bulidoge.site"
     },
     {
-      "pattern": "www.bulidoge.site",
-      "custom_domain": true
+      "pattern": "www.bulidoge.site/*",
+      "zone_name": "bulidoge.site"
     }
   ],
   "observability": {
