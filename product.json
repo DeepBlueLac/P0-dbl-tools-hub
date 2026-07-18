@@ -2,9 +2,16 @@
   "slug": "dbl-tools-hub",
   "name": "DBL-TOOLS",
   "mode": "brand-hub",
-  "status": "building",
+  "status": "live",
   "platforms": ["web"],
   "path": "C:\\Users\\Administrator\\Documents\\变成一个网站并部署\\products\\P0-dbl-tools-hub",
   "webUrl": "https://bulidoge.site",
-  "createdAt": "2026-07-19T00:00:00Z"
+  "createdAt": "2026-07-19T00:00:00Z",
+  "deployedAt": "2026-07-19T05:21:00+08:00",
+  "deployment": {
+    "provider": "Cloudflare Workers",
+    "worker": "dbl-tools-edge",
+    "routeMode": "existing-zone-routes",
+    "domains": ["bulidoge.site/*", "www.bulidoge.site/*"]
+  }
 }
