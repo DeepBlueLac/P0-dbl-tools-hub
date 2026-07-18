@@ -3,7 +3,7 @@
 ## 2026-07-19
 
 - Worker：`dbl-tools-edge`
-- 版本：`8f879d7d-e84d-4316-872b-ecfcca507da7`
+- 版本：`578abdd9-f156-4706-a8c5-b4257413000f`
 - Cloudflare 账户：已登录的 `Bulidoge0422@gmail.com's Account`
 - 入口路由：
   - `bulidoge.site/*`
@@ -11,6 +11,7 @@
 - 线上验证：根首页、`www` 首页、`/privacy`、`/robots.txt`、`/sitemap.xml` 均返回 HTTP 200。
 - Shelfmark 回归验证：`https://books.bulidoge.site/` 返回 HTTP 200。
 - Vercel 回归验证：`https://isbn-book-lookup-seven.vercel.app/` 返回 HTTP 200。
+- SEO 复核：根域名 canonical 已输出为 `https://bulidoge.site`，`www` 作为可访问别名保留。
 
 ## 为什么使用 Route 而不是 Custom Domain
 
