@@ -5,6 +5,7 @@ const approvedEnv = {
   NEXT_PUBLIC_ADSENSE_STAGE: "approved",
   NEXT_PUBLIC_ADSENSE_CLIENT: "ca-pub-1234567890123456",
   NEXT_PUBLIC_ADSENSE_PUBLISHER_ID: "pub-1234567890123456",
+  NEXT_PUBLIC_ADSENSE_VERIFICATION: "meta",
 };
 
 describe("DBL AdSense guard", () => {
@@ -37,6 +38,11 @@ describe("DBL AdSense guard", () => {
       "google-adsense-account": "ca-pub-1234567890123456",
     });
     expect(config.enabled).toBe(false);
+    expect(getAdSenseVerificationMeta(readAdSenseConfig({
+      ...approvedEnv,
+      NEXT_PUBLIC_ADSENSE_STAGE: "application-ready",
+      NEXT_PUBLIC_ADSENSE_VERIFICATION: "none",
+    }))).toEqual({});
     expect(getAdSenseVerificationMeta(readAdSenseConfig())).toEqual({});
   });
 

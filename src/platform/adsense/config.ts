@@ -10,10 +10,13 @@ export type AdConsentState =
   | "non-personalized"
   | "denied";
 
+export type AdSenseVerificationMethod = "none" | "meta";
+
 export type AdSenseConfig = {
   stage: AdSenseStage;
   clientId: string;
   publisherId: string;
+  verificationMethod: AdSenseVerificationMethod;
   enabled: boolean;
 };
 
@@ -21,6 +24,7 @@ type AdSenseEnv = {
   NEXT_PUBLIC_ADSENSE_STAGE?: string;
   NEXT_PUBLIC_ADSENSE_CLIENT?: string;
   NEXT_PUBLIC_ADSENSE_PUBLISHER_ID?: string;
+  NEXT_PUBLIC_ADSENSE_VERIFICATION?: string;
 };
 
 const stages: AdSenseStage[] = [
@@ -37,12 +41,16 @@ export function readAdSenseConfig(env: AdSenseEnv = {
   NEXT_PUBLIC_ADSENSE_STAGE: process.env.NEXT_PUBLIC_ADSENSE_STAGE,
   NEXT_PUBLIC_ADSENSE_CLIENT: process.env.NEXT_PUBLIC_ADSENSE_CLIENT,
   NEXT_PUBLIC_ADSENSE_PUBLISHER_ID: process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID,
+  NEXT_PUBLIC_ADSENSE_VERIFICATION: process.env.NEXT_PUBLIC_ADSENSE_VERIFICATION,
 }): AdSenseConfig {
   const stage = stages.includes(env.NEXT_PUBLIC_ADSENSE_STAGE as AdSenseStage)
     ? (env.NEXT_PUBLIC_ADSENSE_STAGE as AdSenseStage)
     : "hypothesis";
   const clientId = (env.NEXT_PUBLIC_ADSENSE_CLIENT || "").trim();
   const publisherId = (env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "").trim();
+  const verificationMethod = env.NEXT_PUBLIC_ADSENSE_VERIFICATION === "meta"
+    ? "meta"
+    : "none";
   const idsMatch = clientPattern.test(clientId) && publisherPattern.test(publisherId)
     && clientId === `ca-${publisherId}`;
 
@@ -50,6 +58,7 @@ export function readAdSenseConfig(env: AdSenseEnv = {
     stage,
     clientId,
     publisherId,
+    verificationMethod,
     enabled: idsMatch && (stage === "approved" || stage === "active"),
   };
 }
@@ -61,7 +70,9 @@ export function getAdSenseScriptSrc(config = readAdSenseConfig()): string {
 export function getAdSenseVerificationMeta(
   config = readAdSenseConfig(),
 ): Record<string, string> {
-  const canVerify = config.stage !== "hypothesis" && publisherPattern.test(config.publisherId);
+  const canVerify = config.stage !== "hypothesis"
+    && config.verificationMethod === "meta"
+    && publisherPattern.test(config.publisherId);
   return canVerify
     ? { "google-adsense-account": `ca-${config.publisherId}` }
     : {};

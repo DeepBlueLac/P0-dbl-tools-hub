@@ -2,7 +2,7 @@
 
 ## 当前阶段
 
-默认阶段为 `hypothesis`。此阶段只准备模块、位置和政策材料，不加载 Google 广告脚本。
+当前阶段为 `application-ready`。网站使用中国 AdSense 账号 `pub-7206621498529527` 的元标记验证；审核通过前不加载 Google 广告脚本。
 
 ## 环境变量
 
@@ -12,6 +12,7 @@
 NEXT_PUBLIC_ADSENSE_STAGE=hypothesis
 NEXT_PUBLIC_ADSENSE_CLIENT=
 NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=
+NEXT_PUBLIC_ADSENSE_VERIFICATION=none
 NEXT_PUBLIC_ADSENSE_RESULT_SLOT=
 ```
 
@@ -51,7 +52,13 @@ import { AdSenseScript, AdSenseSlot } from "@/platform/adsense";
 
 ## ads.txt
 
-审核通过后，将 AdSense 后台提供的真实卖方记录写入 `public/ads.txt`。不要把 `ads.txt.example`、占位 ID 或猜测的 Publisher ID 发布到生产站。
+新中国账户已经在 AdSense 界面给出精确 Publisher ID，生产站使用：
+
+```text
+google.com, pub-7206621498529527, DIRECT, f08c47fec0942fa0
+```
+
+不要把 `ads.txt.example`、占位 ID 或旧日本账户 ID 发布到生产站。
 
 ## 位置门禁
 

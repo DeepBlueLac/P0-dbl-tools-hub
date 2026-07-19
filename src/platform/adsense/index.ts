@@ -8,4 +8,5 @@ export {
   type AdConsentState,
   type AdSenseConfig,
   type AdSenseStage,
+  type AdSenseVerificationMethod,
 } from "./config";

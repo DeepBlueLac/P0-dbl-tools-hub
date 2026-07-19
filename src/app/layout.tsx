@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import { getAdSenseVerificationMeta } from "@/platform/adsense";
 import "./globals.css";
-
-const adsenseClient = "ca-pub-6262164590697267";
 
 const displayFont = Space_Grotesk({
   subsets: ["latin"],
@@ -22,9 +21,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  other: {
-    "google-adsense-account": adsenseClient,
-  },
+  other: getAdSenseVerificationMeta(),
   title: {
     default: "DBL-TOOLS | Small tools, carefully made.",
     template: "%s | DBL-TOOLS",
@@ -44,13 +41,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${uiFont.variable} ${displayFont.variable}`}>
-      <head>
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-          crossOrigin="anonymous"
-        />
-      </head>
       <body>{children}</body>
     </html>
   );
