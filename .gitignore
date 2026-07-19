@@ -5,6 +5,7 @@
 /cloudflare-env.d.ts
 /.dev.vars*
 .env*
+!.env.example
 *.tsbuildinfo
 coverage
 .DS_Store
