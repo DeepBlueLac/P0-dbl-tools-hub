@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">DBL-TOOLS mark</title>
+  <desc id="desc">A dark circular DBL monogram outlined in coral.</desc>
+  <circle cx="256" cy="256" r="214" fill="#090c0d" stroke="#ff765f" stroke-width="16" />
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#ff765f" stroke-opacity="0.24" stroke-width="2" />
+  <text
+    x="256"
+    y="276"
+    fill="#f4f0e9"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="106"
+    font-weight="700"
+    letter-spacing="8"
+    text-anchor="middle"
+  >DBL</text>
+  <path d="M170 320h172" stroke="#ff765f" stroke-width="6" stroke-linecap="round" />
+</svg>
