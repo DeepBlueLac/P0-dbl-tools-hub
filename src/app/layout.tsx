@@ -18,9 +18,6 @@ const uiFont = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bulidoge.site"),
-  alternates: {
-    canonical: "/",
-  },
   other: getAdSenseVerificationMeta(),
   title: {
     default: "DBL-TOOLS | Small tools, carefully made.",

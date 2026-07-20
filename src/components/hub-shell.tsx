@@ -34,7 +34,7 @@ export function HubShell() {
         <nav className="site-nav" aria-label="Primary navigation">
           <a href="#products">Products</a>
           <a href="#principles">Why</a>
-          <a className="nav-product-link" href="https://books.bulidoge.site">Open Shelfmark</a>
+          <a className="nav-product-link" href="/products/shelfmark">Shelfmark</a>
         </nav>
       </header>
 
@@ -69,7 +69,7 @@ export function HubShell() {
         </motion.div>
 
         <motion.article className="featured-product" {...reveal(Boolean(reduce), 0.08)}>
-          <a className="featured-media" href="https://books.bulidoge.site" aria-label="Open Shelfmark">
+          <a className="featured-media" href="/products/shelfmark" aria-label="Learn about Shelfmark">
             <Image
               src="/media/shelfmark-preview.webp"
               alt="A book opening into a warm illuminated reading portal."
@@ -82,7 +82,7 @@ export function HubShell() {
             <h3>Shelfmark</h3>
             <p>Search a title, author, or ISBN, then follow an official route to download, borrow, preview, or purchase.</p>
             <div className="product-meta"><span>Open Library</span><span>Archive.org</span><span>Private shelf</span></div>
-            <a className="text-link" href="https://books.bulidoge.site">Visit Shelfmark <ArrowUpRight size={16} weight="bold" /></a>
+            <a className="text-link" href="/products/shelfmark">See how Shelfmark works <ArrowUpRight size={16} weight="bold" /></a>
           </div>
         </motion.article>
       </section>
@@ -98,8 +98,8 @@ export function HubShell() {
               <span className="product-number">{product.number}</span>
               <h3>{product.name}</h3>
               <p>{product.description}</p>
-              {product.href ? (
-                <a className="product-status product-status-link" href={product.href}>
+              {product.detailHref ? (
+                <a className="product-status product-status-link" href={product.detailHref}>
                   {product.status} <ArrowUpRight size={15} weight="bold" />
                 </a>
               ) : (

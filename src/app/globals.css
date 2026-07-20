@@ -149,6 +149,19 @@ button { color: inherit; font: inherit; }
 .legal-page section p { max-width: 640px; margin-top: 11px; color: var(--paper-muted); font-size: 15px; line-height: 1.75; }
 .legal-page section a { color: var(--paper); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 
+.product-detail-page { width: min(940px, calc(100% - 36px)); min-height: 100svh; margin: 0 auto; padding: 42px 0 96px; }
+.product-detail-nav { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--paper-muted); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.product-detail-nav a { color: var(--accent); }
+.product-detail { padding-top: 92px; }
+.product-detail h1 { max-width: 820px; margin-top: 22px; font-family: var(--font-display), sans-serif; font-size: clamp(52px, 8vw, 94px); font-weight: 500; line-height: .96; letter-spacing: -.07em; text-wrap: balance; }
+.product-detail-lede { max-width: 700px; margin-top: 28px; color: var(--paper-muted); font-size: 18px; line-height: 1.75; }
+.product-detail section { display: grid; grid-template-columns: minmax(180px, .55fr) minmax(0, 1fr); gap: 48px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); }
+.product-detail h2 { font-size: 16px; line-height: 1.5; }
+.product-detail section p, .product-detail li { color: var(--paper-muted); font-size: 15px; line-height: 1.75; }
+.product-detail ul { padding-left: 20px; }
+.product-detail li + li { margin-top: 10px; }
+.product-detail-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 64px; }
+
 @keyframes hero-drift { from { transform: scale(1.02) translate3d(0, 0, 0); } to { transform: scale(1.07) translate3d(-1.3%, -.8%, 0); } }
 
 @media (max-width: 900px) {
@@ -191,6 +204,9 @@ button { color: inherit; font: inherit; }
   .product-row:hover { padding: 15px 8px; }
   .product-status { grid-column: 2; grid-row: 3; justify-self: start; margin-top: -3px; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 17px; padding: 28px 0; }
+  .product-detail { padding-top: 64px; }
+  .product-detail section { grid-template-columns: 1fr; gap: 14px; margin-top: 48px; }
+  .product-detail-actions { align-items: stretch; flex-direction: column; gap: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

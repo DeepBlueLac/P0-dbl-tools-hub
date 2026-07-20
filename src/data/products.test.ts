@@ -8,8 +8,14 @@ describe("DBL-TOOLS product index", () => {
       expect(product.name.length).toBeGreaterThan(2);
       expect(product.description.length).toBeGreaterThan(20);
       expect(["Live", "In the studio"]).toContain(product.status);
-      if (product.status === "Live") expect(product.href).toMatch(/^https:\/\//);
-      if (product.status === "In the studio") expect(product.href).toBeNull();
+      if (product.status === "Live") {
+        expect(product.detailHref).toBe(`/products/${product.slug}`);
+        expect(product.liveUrl).toMatch(/^https:\/\//);
+      }
+      if (product.status === "In the studio") {
+        expect(product.detailHref).toBeNull();
+        expect(product.liveUrl).toBeNull();
+      }
     }
   });
 });
